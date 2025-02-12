@@ -1,0 +1,19 @@
+<?php
+
+namespace App\Filament\Resources\ItineraryResource\Pages;
+
+use App\Filament\Resources\ItineraryResource;
+use Filament\Pages\Actions;
+use Filament\Resources\Pages\EditRecord;
+
+class EditItinerary extends EditRecord
+{
+    protected static string $resource = ItineraryResource::class;
+
+    protected function getActions(): array
+    {
+        return [
+            Actions\DeleteAction::make(),
+        ];
+    }
+}
