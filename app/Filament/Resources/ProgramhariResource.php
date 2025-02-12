@@ -6,9 +6,9 @@ use App\Filament\Resources\ProgramhariResource\Pages;
 use App\Filament\Resources\ProgramhariResource\RelationManagers;
 use App\Models\Programhari;
 use Filament\Forms;
-use Filament\Resources\Form;
+use Filament\Forms\Form;
 use Filament\Resources\Resource;
-use Filament\Resources\Table;
+use Filament\Tables\Table;
 use Filament\Tables;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -17,7 +17,7 @@ class ProgramhariResource extends Resource
 {
     protected static ?string $model = Programhari::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
     protected static ?string $navigationGroup = 'Master';
     protected static ?string $navigationLabel = 'Program Hari';
     protected static ?string $label = 'Program Hari';

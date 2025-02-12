@@ -5,8 +5,8 @@ namespace App\Filament\Resources;
 use Filament\Forms;
 use Filament\Tables;
 use App\Models\Kamar;
-use Filament\Resources\Form;
-use Filament\Resources\Table;
+use Filament\Forms\Form;
+use Filament\Tables\Table;
 use Filament\Resources\Resource;
 use Filament\Forms\Components\Card;
 use Illuminate\Database\Eloquent\Builder;
@@ -18,7 +18,7 @@ class KamarResource extends Resource
 {
     protected static ?string $model = Kamar::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
     protected static ?string $navigationGroup = 'Master';
     protected static ?string $navigationLabel = 'Kamar';
     protected static ?string $label = 'Kamar';

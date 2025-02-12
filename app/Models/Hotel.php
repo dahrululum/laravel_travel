@@ -11,6 +11,7 @@ class Hotel extends Model
     protected $table = 'ref_hotel';
     protected $fillable = [
         'namahotel',
+        'foto',
         'ket',
         'status',
     ];

@@ -5,9 +5,10 @@ namespace App\Filament\Resources;
 use Filament\Forms;
 use Filament\Tables;
 use App\Models\Hotel;
-use Filament\Resources\Form;
-use Filament\Resources\Table;
+use Filament\Forms\Form;
+use Filament\Tables\Table;
 use Filament\Resources\Resource;
+use Illuminate\Support\HtmlString;
 use Filament\Forms\Components\Card;
 use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\HotelResource\Pages;
@@ -18,7 +19,7 @@ class HotelResource extends Resource
 {
     protected static ?string $model = Hotel::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
     protected static ?string $navigationGroup = 'Master';
     protected static ?string $navigationLabel = 'Hotel';
     protected static ?string $label = 'Hotel';
@@ -32,9 +33,12 @@ class HotelResource extends Resource
                     ->label(__('Nama Hotel'))
                     ->required()
                     ->maxLength(255),
-                Forms\Components\Select::make('status')
-                    ->options(['0'=> 'Tidak Aktif',
-                                '1'=> 'Aktif',]),
+                Forms\Components\FileUpload::make('foto')
+                    ->image()
+                    ->directory('hotels'),
+                Forms\Components\Toggle::make('status')
+                    ->default(1)
+                    ->label('Is Active'),
                 Forms\Components\RichEditor::make('ket')
                     ->required(),
             ])
@@ -46,9 +50,11 @@ class HotelResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('namahotel'),
-                Tables\Columns\TextColumn::make('ket'),
-                Tables\Columns\TextColumn::make('status'),
+                Tables\Columns\TextColumn::make('namahotel')->label('Nama Hotel'),
+                Tables\Columns\ImageColumn::make('foto'),
+                Tables\Columns\TextColumn::make('ket')->label('Deskripsi')->formatStateUsing(fn (string $state): HtmlString => new HtmlString($state)),
+                Tables\Columns\IconColumn::make('status')->boolean(),
+                
                 
             ])
             ->filters([
