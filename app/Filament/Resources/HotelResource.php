@@ -55,6 +55,7 @@ class HotelResource extends Resource
                 Tables\Columns\TextColumn::make('ket')->label('Deskripsi')->formatStateUsing(fn (string $state): HtmlString => new HtmlString($state)),
                 Tables\Columns\IconColumn::make('status')->boolean(),
                 
+                
             ])
             ->filters([
                 //
