@@ -10,7 +10,7 @@ class ListFasilitas extends ListRecords
 {
     protected static string $resource = FasilitasResource::class;
 
-    protected function getActions(): array
+    protected function getHeaderActions(): array
     {
         return [
             Actions\CreateAction::make(),

@@ -10,7 +10,7 @@ class EditPersyaratan extends EditRecord
 {
     protected static string $resource = PersyaratanResource::class;
 
-    protected function getActions(): array
+    protected function getHeaderActions(): array
     {
         return [
             Actions\DeleteAction::make(),

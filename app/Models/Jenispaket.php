@@ -16,4 +16,8 @@ class Jenispaket extends Model
         'ket',
         'status',
     ];
+
+    public function paket(){
+        return $this->hasMany(Paket::class);
+    }
 }
